@@ -41,8 +41,7 @@ class User(AbstractBaseUser):
     )
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-   
-    # notice the absence of a "Password field", that is built in.
+    last_login = models.DateTimeField(blank=True, null=True, verbose_name='last login'),
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = [] # Email & Password are required by default.
@@ -50,11 +49,9 @@ class User(AbstractBaseUser):
     objects = UserManager()
 
     def get_full_name(self):
-        # The user is identified by their email address
         return self.email
 
     def get_short_name(self):
-        # The user is identified by their email address
         return self.email
 
     def __str__(self):
@@ -62,16 +59,15 @@ class User(AbstractBaseUser):
 
     def has_perm(self, perm, obj=None):
         "Does the user have a specific permission?"
-        # Simplest possible answer: Yes, always
         return True
 
     def has_module_perms(self, app_label):
         "Does the user have permissions to view the app `app_label`?"
-        # Simplest possible answer: Yes, always
         return True
 
     @property
     def is_staff(self):
+        # for admin panel
         "Is the user a admin member?"
         return self.is_admin
 
