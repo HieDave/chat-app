@@ -28,7 +28,7 @@ class UserManager(BaseUserManager):
             email,
             password=password,
         )
-        user.admin = True
+        user.is_admin = True
         user.save(using=self._db)
         return user
 
@@ -40,7 +40,7 @@ class User(AbstractBaseUser):
         unique=True,
     )
     is_active = models.BooleanField(default=True)
-    admin = models.BooleanField(default=False)
+    is_admin = models.BooleanField(default=False)
    
     # notice the absence of a "Password field", that is built in.
 
@@ -71,9 +71,9 @@ class User(AbstractBaseUser):
         return True
 
     @property
-    def is_admin(self):
+    def is_staff(self):
         "Is the user a admin member?"
-        return self.admin
+        return self.is_admin
 
 
 
