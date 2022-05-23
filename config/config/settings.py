@@ -54,9 +54,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'accounts.authenticate.Authentication',
     ),
-    'DEFAULT_PAGINATION_CLASS': (
-        'rest_framework.pagination.LimitOffsetPagination',
-    ),
+    # 'DEFAULT_PAGINATION_CLASS': (
+    #     'rest_framework.pagination.LimitOffsetPagination',
+    # ),
 }
 
 CORS_ALLOW_CREDENTIALS = True 
