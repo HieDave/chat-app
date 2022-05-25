@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     # apps
     'accounts',
     'profiles',
+    'inbox',
+    'message',
+    
 ]
 
 REST_FRAMEWORK = {
