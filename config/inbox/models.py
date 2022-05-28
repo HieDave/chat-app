@@ -12,4 +12,4 @@ class Inbox(models.Model):
 
 class Inbox_participants(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    inbox = models.ForeignKey(Inbox, on_delete=models.CASCADE)
+    inbox = models.ForeignKey(Inbox, on_delete=models.CASCADE, blank=True)
