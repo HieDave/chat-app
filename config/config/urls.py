@@ -20,10 +20,10 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('accounts.urls')),
-    path('api/', include('profiles.urls')),
-    path('api/', include('message.urls')),
-    path('api/', include('inbox.urls')),
+    path('api/v1/', include('accounts.urls')),
+    path('api/v1/', include('profiles.urls')),
+    path('api/v1/', include('message.urls')),
+    path('api/v1/', include('inbox.urls')),
 ] + static(
     settings.STATIC_URL, 
     document_root=settings.STATIC_ROOT

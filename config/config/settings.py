@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+    'django_filters',
 
     # apps
     'accounts',
@@ -64,6 +65,9 @@ REST_FRAMEWORK = {
     # 'DEFAULT_PAGINATION_CLASS': (
     #     'rest_framework.pagination.LimitOffsetPagination',
     # ),
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
+        ]
 }
 
 CORS_ALLOW_CREDENTIALS = True 
