@@ -13,7 +13,7 @@ class MessageSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         inbox = validated_data.get('inbox')
         message = Message.objects.create(
-            user = validated_data['user'],
+            profile = validated_data['profile'],
             message_text = validated_data['message_text'],
             inbox = validated_data['inbox']
         )

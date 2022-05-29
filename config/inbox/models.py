@@ -1,10 +1,8 @@
 from django.db import models
-from django.conf import settings
 
 from message.models import Message
+from profiles.models import Profile
 
-
-User = settings.AUTH_USER_MODEL
 
 class Inbox(models.Model):
     last_message = models.ForeignKey(
@@ -14,8 +12,8 @@ class Inbox(models.Model):
         blank=True, 
         null=True
         )
-    users = models.ManyToManyField(
-        User, 
+    profiles = models.ManyToManyField(
+        Profile, 
         related_name='inboxes'
         )
 

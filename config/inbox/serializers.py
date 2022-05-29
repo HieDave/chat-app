@@ -1,14 +1,8 @@
 from rest_framework import serializers
-from accounts.serializers import UserSerializer
-from message.serializers import MessageSerializer
-
-from django.contrib.auth import get_user_model
 
 from .models import Inbox
 
 
-
-User = get_user_model()
 
 class ReadInboxSerializer(serializers.ModelSerializer):
 
@@ -25,11 +19,11 @@ class WriteInboxSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
-        print(validated_data)
-        users = validated_data.pop("users")
+
+        profiles = validated_data.pop("profiles")
         inbox = Inbox.objects.create(
-            last_message = validated_data["last_message"],
+            last_message = validated_data.get("last_message"),
         )
-        for item in users:
-            inbox.users.add(item)
+        for item in profiles:
+            inbox.profiles.add(item)
         return inbox

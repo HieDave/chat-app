@@ -15,7 +15,7 @@ class InboxListView(generics.ListCreateAPIView):
         DjangoFilterBackend,
         filters.OrderingFilter
         ]
-    filterset_fields = ['id', 'users', 'last_message']
+    filterset_fields = ['id', 'profiles', 'last_message']
     ordering_fields = '__all__'
     ordering = ['id']
 
