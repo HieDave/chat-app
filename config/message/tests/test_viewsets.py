@@ -83,3 +83,9 @@ def test_retreive_messages(client):
     )
 
     assert response.status_code == 200
+
+    # note
+    # I also need to add tests for url params such as
+    # - ordering
+    # - model fields
+    # - pagination
